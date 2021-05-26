@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { BookingService } from './Bookings/booking.service';
 import { Role } from './models/role';
 import { AuthService } from './services/auth.service';
 import { UserService } from './Users/user.service';
@@ -11,9 +12,9 @@ import { UserService } from './Users/user.service';
 })
 export class AppComponent {
   title = 'HostelMngSys';
-  constructor(private router: Router, private authService: AuthService, private userService: UserService) { }
+  constructor(private router: Router, private authService: AuthService, private userService: UserService, private bookService: BookingService) { }
 
-  public user_name = this.userService.userNameFromLogin;
+  public name= this.userService.userNameFromLogin;
 
   get isAuthorized() {
     return this.authService.isAuthorized();
@@ -27,6 +28,7 @@ export class AppComponent {
     return this.authService.hasRole(Role.Resident);
   }
 
+  public room:any={room_no :this.bookService.roomFromBooking};
 
   logout() {
     this.authService.logout();

@@ -14,6 +14,10 @@ export class HostelregistrationComponent implements OnInit {
 
   public allRooms:any={}
 
+  var = this.room.room_no
+
+  public message : String="Please note your room no:"+this.var;
+
   constructor(public restApi: BookingService,
     public router: Router,public bookService: BookingService) { }
 
@@ -21,10 +25,16 @@ export class HostelregistrationComponent implements OnInit {
       this.bookService.getRooms().subscribe(data => this.allRooms = data)
     }
 
+    room_type: Array<any>=[
+      {name:"Single bed"},
+      {name:"Double bed"}
+    ];
+
   bookRoom(){
     this.restApi.roomBook(this.room).subscribe((data:{}) => { this.router.navigate(['/checkindetails'])})
     this.bookService.roomFromBooking =this.room.room_no;
     console.log(this.bookService.roomFromBooking );
+  
     
   }
 

@@ -32,7 +32,7 @@
                           <span class="profile-ava">
                               <img alt="" src="assets/img/avatar1_small.jpg">
                           </span>
-                          <span class="username">{{user_name}}</span>
+                          <span class="username">{{name}}</span>
                           <b class="caret"></b>
                       </a>
                       <a *ngIf="isAuthorized" (click)="logout()" >Logout</a>
@@ -54,24 +54,25 @@
                         <i class="icon_house_alt"></i>
                         <span>Dashboard</span>
                     </a>
+                    
         </li>
         
         
         <li>
           <a  routerLink="/residentdetails" *ngIf="isAdmin">
-                        <i class="icon_genius"></i>
+                        <i class="icon_book_alt"></i>
                         <span>Resident details</span>
                     </a>
         </li>
         <li>
           <a  routerLink="/staffdetails" *ngIf="isAdmin" hidden>
-                        <i class="icon_genius"></i>
+                        <i class="icon_book_alt"></i>
                         <span>Staff details</span>
                     </a>
         </li>
         <li>
           <a  routerLink="/hostelregistration" *ngIf="isResident">
-                        <i class="icon_desktop"></i>
+                        <i class="icon_calendar"></i>
                         <span>Hostel Registration</span>
 
                     </a>
@@ -79,7 +80,7 @@
         </li>
         <li>
           <a  routerLink="/payfee" *ngIf="isResident">
-                        <i class="icon_desktop"></i>
+                        <i class="icon_folder-open"></i>
                         <span>Pay fee</span>
 
                     </a>
@@ -95,13 +96,13 @@
         </li>
         <li>
           <a  routerLink="/bookingdetails" *ngIf="isAdmin">
-                        <i class="icon_genius"></i>
+                        <i class="icon_calendar"></i>
                         <span>Boooking details</span>
                     </a>
         </li>
         <li>
           <a  routerLink="/roomdetails" *ngIf="isAdmin">
-                        <i class="icon_desktop"></i>
+                        <i class="icon_contacts_alt"></i>
                         <span>Room details</span>
 
                     </a>
@@ -117,7 +118,7 @@
         </li>
         <li>
           <a  routerLink="/abouthostel" *ngIf="isResident">
-                        <i class="icon_desktop"></i>
+                        <i class="icon_paperclip"></i>
                         <span>About hostel</span>
 
                     </a>
@@ -133,18 +134,6 @@
 
   <!--main content start-->
   <section id="main-content" *ngIf="isAuthorized">
-    <section class="wrapper">
-      <!--overview start-->
-      <div class="row">
-        <div class="col-lg-12">
-          <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
-          <ol class="breadcrumb">
-            <li><i class="fa fa-home"></i><a routerLink="/home">Home</a></li>
-            <li><i class="fa fa-laptop"></i>Dashboard</li>
-          </ol>
-        </div>
-      </div> 
-    </section>
 
     
 
@@ -172,6 +161,7 @@
    
     <div class="container mt-5">
         <div class="row ">
+
             
             <div class="sec1 col-md-4 text-center mt-3">
                 <i class="fa fa-lock fa-5x " aria-hidden="true"></i>

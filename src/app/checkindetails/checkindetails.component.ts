@@ -59,7 +59,7 @@ export class CheckindetailsComponent implements OnInit {
       this.book.check_out,
       'yyyy-MM-dd'
     );
-   this.da3=new Date(this.book.booking_date).getTime();
+   this.da3=new Date(this.book.booking_date).getDate();
  
     /*this.da3 = new Date(this.book.booking_date).getDate();*/
     this.mn3 = new Date(this.book.booking_date).getMonth();
@@ -73,7 +73,7 @@ export class CheckindetailsComponent implements OnInit {
     console.log(this.da3+1,new Date().getTime());
     
     console.log(this.da1, this.mn1, this.da2, this.mn2,this.da3,this.mn3);
-    if (this.da3>=new Date().getTime()) {
+    if (this.da3==new Date().getDate()) {
       if (
         (this.gt1)>= new Date().getTime() &&
         (this.gt2)>= new Date().getTime()

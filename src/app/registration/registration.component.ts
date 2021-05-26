@@ -62,7 +62,7 @@ gender:new FormControl('',[Validators.required]),
   }
 
   addUser(){
-    this.restApi.register(this.user,this.user.address,this.user.room).subscribe((data:{}) => { this.router.navigate(['/login'])})
+    this.restApi.register(this.user,this.user.address,this.user.room, this.user.food_preferences).subscribe((data:{}) => { this.router.navigate(['/login'])})
   }
 
   /*countryList: Array<any> = [
@@ -94,7 +94,7 @@ gender:new FormControl('',[Validators.required]),
   @Input()
   public user={
     user_id:'', user_name:'', phone_number:'', email_id:'', password:'', gender:'', date_of_birth:'',
-    address:{addressLine1:'', addressLine2:'', state:this.countryList[0], city:this.cities[0], country:'', zipCode:''}, room: {room_no:''} }
+    address:{addressLine1:'', addressLine2:'', state:this.countryList[0], city:this.cities[0], country:'', zipCode:''}, room: {room_no:'1'},food_preferences:'yes' }
   
     
 }

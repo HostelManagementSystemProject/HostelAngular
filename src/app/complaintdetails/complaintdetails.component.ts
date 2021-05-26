@@ -35,6 +35,10 @@ export class ComplaintdetailsComponent implements OnInit {
     return this.authService.hasRole(Role.Resident);
   }
 
+  get isAdmin() {
+    return this.authService.hasRole(Role.Admin);
+  }
+
   onDelete(comp: Complaints) {
     this.selectedId = comp.complaint_id ;
     this.comService.deleteComp(this.selectedId).subscribe((data) => {

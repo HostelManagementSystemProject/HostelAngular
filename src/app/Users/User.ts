@@ -17,9 +17,6 @@ export interface User{
     password: String,
     gender: String,
     date_of_birth: Date,
-
-    
-
     food_preferences: String
 
 }

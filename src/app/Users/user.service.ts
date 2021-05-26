@@ -27,6 +27,11 @@ export class UserService {
   public userNameFromLogin;
   public userEmailFromLogin;
   public userPassFromLogin;
+  public userCityFromLogin;
+  public userStateFromLogin;
+  public userCountryFromLogin;
+  public userRoomFromLogin;
+  public userPhnFromLogin;
   
   getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this._url+'/allresidents');
@@ -49,8 +54,13 @@ export class UserService {
   
   }
   
-  register(user :any, address: any, room: any): Observable<User>{
+  register(user :any, address: any, room: any, food: any): Observable<User>{
     return this.http.post<User>(this._url + '/createresident', JSON.stringify(user, address,room), this.httpOptions)
+    .pipe(retry(1), catchError(this.handleError));
+  }
+
+  searchUser(uid: any): Observable<User[]>{
+    return this.http.get<User[]>(this._url+'/searchresident/'+ uid, this.httpOptions)
     .pipe(retry(1), catchError(this.handleError));
   }
 

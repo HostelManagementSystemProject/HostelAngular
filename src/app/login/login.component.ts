@@ -62,6 +62,12 @@ export class LoginComponent implements OnInit {
       this.userService.userNameFromLogin = this.udata.user_name;
       this.userService.userEmailFromLogin = this.udata.email_id;
       this.userService.userPassFromLogin = this.udata.password;
+      this.userService.userCityFromLogin = this.udata.address.city;
+      this.userService.userStateFromLogin = this.udata.address.state;
+      this.userService.userCountryFromLogin = this.udata.address.country;
+      this.userService.userRoomFromLogin = this.udata.room.room_no;
+      this.userService.userPhnFromLogin = this.udata.phone_number;
+
       console.log(this.udata.user_name);
     }
     else{
