@@ -1,0 +1,326 @@
+
+<section id="container" class="">
+
+
+  <header class="header dark-bg">
+
+    <!--logo start-->
+    <a href="index.html" class="logo">Hostel <span class="lite">Management</span> System</a>
+    <!--logo end-->
+    
+
+    <div class="nav search-row" id="top_menu" *ngIf="isAuthorized">
+      <!--  search form start -->
+      <ul class="nav top-menu">
+        <li>
+          <form class="navbar-form">
+            <input class="form-control" placeholder="Search" type="text">
+          </form>
+        </li>
+      </ul>
+      <!--  search form end -->
+    </div>
+
+    <div class="top-nav notification-row" *ngIf="isAuthorized">
+      <!-- notificatoin dropdown start-->
+      <ul class="nav pull-right top-menu">
+
+        
+
+        <!-- user login dropdown start-->
+          <a routerLink="/profile"  >
+                          <span class="profile-ava">
+                              <img alt="" src="assets/img/avatar1_small.jpg">
+                          </span>
+                          <span class="username">{{user_name}}</span>
+                          <b class="caret"></b>
+                      </a>
+                      <a *ngIf="isAuthorized" (click)="logout()" >Logout</a>
+          
+        <!-- user login dropdown end -->
+      </ul>
+      <!-- notificatoin dropdown end-->
+    </div>
+  </header>
+  <!--header end-->
+
+  <!--sidebar start-->
+  <aside>
+    <div id="sidebar" class="nav-collapse " *ngIf="isAuthorized">
+      <!-- sidebar menu start-->
+      <ul class="sidebar-menu">
+        <li class="active">
+          <a  routerLink="/home">
+                        <i class="icon_house_alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+        </li>
+        
+        
+        <li>
+          <a  routerLink="/residentdetails" *ngIf="isAdmin">
+                        <i class="icon_genius"></i>
+                        <span>Resident details</span>
+                    </a>
+        </li>
+        <li>
+          <a  routerLink="/staffdetails" *ngIf="isAdmin" hidden>
+                        <i class="icon_genius"></i>
+                        <span>Staff details</span>
+                    </a>
+        </li>
+        <li>
+          <a  routerLink="/hostelregistration" *ngIf="isResident">
+                        <i class="icon_desktop"></i>
+                        <span>Hostel Registration</span>
+
+                    </a>
+
+        </li>
+        <li>
+          <a  routerLink="/payfee" *ngIf="isResident">
+                        <i class="icon_desktop"></i>
+                        <span>Pay fee</span>
+
+                    </a>
+
+        </li>
+        <li>
+          <a  routerLink="/paymentdetails" *ngIf="isAdmin">
+                        <i class="icon_desktop"></i>
+                        <span>Payment details</span>
+
+                    </a>
+
+        </li>
+        <li>
+          <a  routerLink="/bookingdetails" *ngIf="isAdmin">
+                        <i class="icon_genius"></i>
+                        <span>Boooking details</span>
+                    </a>
+        </li>
+        <li>
+          <a  routerLink="/roomdetails" *ngIf="isAdmin">
+                        <i class="icon_desktop"></i>
+                        <span>Room details</span>
+
+                    </a>
+
+        </li>
+        <li>
+          <a  routerLink="/complaintdetails" *ngIf="isAuthorized">
+                        <i class="icon_desktop"></i>
+                        <span>Complaint desk</span>
+
+                    </a>
+
+        </li>
+        <li>
+          <a  routerLink="/abouthostel" *ngIf="isResident">
+                        <i class="icon_desktop"></i>
+                        <span>About hostel</span>
+
+                    </a>
+
+        </li>
+        
+
+      </ul>
+      <!-- sidebar menu end-->
+    </div>
+  </aside>
+  <!--sidebar end-->
+
+  <!--main content start-->
+  <section id="main-content" *ngIf="isAuthorized">
+    <section class="wrapper">
+      <!--overview start-->
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+          <ol class="breadcrumb">
+            <li><i class="fa fa-home"></i><a routerLink="/home">Home</a></li>
+            <li><i class="fa fa-laptop"></i>Dashboard</li>
+          </ol>
+        </div>
+      </div> 
+    </section>
+
+    
+
+  </section>
+  <br><br><br><br>
+  
+  
+  <!--main content end-->
+</section>
+<div class="appcomponentimg">
+  <!--<img src="./assets/img/c3.jpg" alt="" class=" img-fluid">-->
+  
+  <div  *ngIf="!isAuthorized" class="col-md-4" >
+    <div class="bg-secondary p-5">
+    <button class="btn btn-primary btn-lg btn-inline" type="submit"  [routerLink]="['login']">Login</button><img src="./assets/img/loginhome.svg" alt="" class=" img-fluid loginicon ">
+    <h2 class="text-white">Not regisered?</h2><button class="btn btn-info btn-lg btn-inline " type="submit" [routerLink]="['registration']">Signup</button><img src="./assets/img/register.svg" alt="" class=" img-fluid loginicon ">
+  
+  </div></div>
+
+<router-outlet></router-outlet>
+
+<div   *ngIf="isAuthorized">
+
+  <section *ngIf="!isAuthorized">
+   
+    <div class="container mt-5">
+        <div class="row ">
+            
+            <div class="sec1 col-md-4 text-center mt-3">
+                <i class="fa fa-lock fa-5x " aria-hidden="true"></i>
+                <p class="text-dark ">Security&Trust</p>
+                <p class="text-center">Sed auctor felis ac purus gravida facilisis. Vivamus vulputate dui ut odio sagittis gravida.Vivamus vulputate dui ut odio sagittis gravida.</p>
+  
+            </div>
+            <div class="sec1 col-md-4 text-center">
+                <i class="fa fa-money fa-5x" aria-hidden="true"></i>
+                <p class="text-dark">Best Price</p>
+                <p class="text-center">Sed auctor felis ac purus gravida facilisis. Vivamus vulputate dui ut odio sagittis gravida.Vivamus vulputate dui ut odio sagittis gravida.</p>
+  
+            </div>
+            <div class="sec1 col-md-4 text-center">
+                <i class="fa fa-clock-o fa-5x" aria-hidden="true"></i>
+                <p class="text-dark">Availability</p>
+                <p class="text-center">Sed auctor felis ac purus gravida facilisis. Vivamus vulputate dui ut odio sagittis gravida.Vivamus vulputate dui ut odio sagittis gravida.</p>
+  
+            </div>
+        </div>
+    </div>
+  </section>
+  <section *ngIf="!isAuthorized">
+    <div class="container">
+        <h4 class="text-center"> Facilities</h4>
+        <div class="row">
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card card-border">
+                    <img src="./assets/img/washing-machine.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body card-border ">
+                        <h3 class="text-center">Laundry</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                        
+                        
+                       
+  
+                    </div>
+                </div>
+            </div>
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card">
+                    <img src="./assets/img/wifi.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body  ">
+                        <h3>Free wifi</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card">
+                    <img src="./assets/img/kitchen.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body ">
+                        <h3>kitchen</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                        
+                       
+  
+                    </div>
+                </div>
+            </div>
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card">
+                    <img src="./assets/img/tv-monitor.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body ">
+                        <h3>Television</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                        
+                       
+  
+                    </div>
+                </div>
+            </div>
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card">
+                    <img src="./assets/img/shower.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body  ">
+                        <h3>Hot shower</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                       
+  
+                    </div>
+                </div>
+            </div>
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card">
+                    <img src="./assets/img/healthy-eating.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body ">
+                        <h3>Healthy food</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                       
+  
+                    </div>
+                </div>
+            </div>
+  
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card">
+                    <img src="./assets/img/lockers.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body ">
+                        <h3>Personal Lockers</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                       
+  
+                    </div>
+                </div>
+            </div>
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card">
+                    <img src="./assets/img/air-conditioner.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body ">
+                        <h3>Air Conditioning</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                       
+  
+                    </div>
+                </div>
+            </div>
+            <div class="sec2 col-md-4 mt-3">
+                <div class="card">
+                    <img src="./assets/img/iron.svg" alt="" class="card-img-top img-fluid loginicon mx-auto d-flex mt-4">
+                    
+                    <div class="card-body ">
+                        <h3>Iron</h3>
+                        <p>ivamus vulputate dui ut odio sagittis gravida.</p>
+                        
+                       
+  
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+    </div>
+  </section>
+</div>
+

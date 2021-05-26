@@ -1,0 +1,35 @@
+<div class="container">
+  
+  <form class="login-form" [formGroup]="form"  (ngSubmit)="submit()" action="">
+    <div class="login-wrap">
+      <p class="login-img"><i class="icon_lock_alt"></i></p>
+      <div class="form-group">
+        <h2>{{message}}</h2>
+        <input type="text" class="form-control" placeholder="Username" [(ngModel)]="user.email_id" formControlName="email"   />
+        <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+          <div *ngIf="f.email.errors.required">Email is required.</div>
+          <div *ngIf="f.email.errors.email">please provide valid email</div>
+          
+         
+      </div>
+      </div>
+      <div class="form-group">
+        
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" formControlName="password"/>
+        <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+          <div *ngIf="f.password.errors.required">password is required.</div>
+          <div *ngIf="f.password.errors.minlength">password should be minimum 4 character long.</div>
+          <div *ngIf="f.password.errors.maxlength">password should be maximum 6 character long.</div>
+
+      </div>
+      </div>
+      
+      <button class="btn btn-primary btn-lg btn-block" type="button" (click)="loginUser(Role.Resident)">Login as User</button>
+      <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="login(Role.Admin)">Login as Admin</button>
+    </div>
+  </form>
+</div>
+
+
+
+  

@@ -1,0 +1,52 @@
+<section class="container">
+  <!-- Form validations -->
+  <div class="row">
+    <div class="col-lg-12">
+      <section class="panel">
+        <header class="panel-heading">
+          ,Hostel registration 
+        </header>
+        <div class="panel-body">
+          <div class="form">
+            <form class="form-validate form-horizontal" id="hostel_registration" method="get" action="">
+              <div class="form-group">
+                  <label for="lblbookdate" class="control-label col-lg-2">Date of booking <span class="required">*</span></label>
+                  <div class="col-lg-10" id='datetimepicker1'>
+                     <input type='date'  id="lblbookdate" name="bookingdate" class="form-control" required [(ngModel)]="book.booking_date"/>
+                    <span class="text-danger"> {{msg1}}</span>
+                  </div>
+               </div>
+              <div class="form-group">
+                <label for="lblcheckin" class="control-label col-lg-2">Date of checkin <span class="required">*</span></label>
+                <div class="col-lg-10" id='datetimepicker1'>
+                   <input type='date'  id="lblcheckin" name="dob" class="form-control" required [(ngModel)]="book.check_in" /><span class="text-danger">{{msg2}}</span>
+                </div>
+             </div>
+             <div class="form-group">
+              <label for="lblcheckin" class="control-label col-lg-2">Date of checkout <span class="required">*</span></label>
+              <div class="col-lg-10" id='datetimepicker1'>
+                 <input type='date'  id="lblcheckin" name="dob" class="form-control" required [(ngModel)]="book.check_out" /><span class="text-danger">{{msg2}}</span>
+              </div>
+           </div>
+              
+              <div class="form-group">
+                <div class="col-lg-offset-2 col-lg-10">
+                  <button class="btn btn-primary" type="button"  (click)="booking(); " >Book</button>
+                  <button class="btn btn-default" type="reset" >Cancel</button>
+                  <span class="text-success">{{msg}}</span>
+                </div>
+              </div>
+            </form>
+            <marquee><span class="text-danger" style="font-size: large;">*bookings are not allowed from 01-06-2021 to 31-06-2021 due to covid-19</span></marquee>
+          </div>
+
+       </div>
+    </section>
+  </div>
+</div>
+</section>
+
+
+
+
+

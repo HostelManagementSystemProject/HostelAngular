@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "fname": "Divya",
+        "lname": "G",
+        "gender": "Female",
+        "email": "div@gmail.com"
+    },
+    {
+        "id": "2",
+        "fname": "Venkat",
+        "lname": "R",
+        "gender": "Male",
+        "email": "ven@gmail.com"
+    },
+    {
+        "id": "3",
+        "fname": "Deep",
+        "lname": "Das",
+        "gender": "Male",
+        "email": "deep@gmail.com"
+    }
+]

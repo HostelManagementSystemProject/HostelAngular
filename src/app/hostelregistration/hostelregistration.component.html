@@ -1,0 +1,47 @@
+<section class="container">
+    <!-- Form validations -->
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">
+            Hostel registration
+          </header>
+          <h3 class="col-lg-10">Please select room type:</h3>
+          <div class="panel-body">
+            <div class="form">
+              <form class="form-validate form-horizontal" id="hostel_registration" method="get" action="">
+                <div class="form-group ">
+                  <label for="lbllname" class="control-label col-lg-2">Room number <span class="required">*</span></label>
+                  <div class="col-lg-10">
+                    <select [(ngModel)]="room.room_no" [ngModelOptions]="{standalone: true}">
+                      <option *ngFor ="let r of allRooms">{{r.room_no}} </option>
+                  </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="lblbookdate" class="control-label col-lg-2">Room Type <span class="required">*</span></label>
+                    <div class="col-lg-10" id='datetimepicker1'>
+                       <input type='text'  id="lblbookdate" name="bookingdate" class="form-control" required [(ngModel)]="room.room_type"/>
+                    </div>
+                 </div>
+                
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                    <button class="btn btn-primary" type="submit" (click)="bookRoom()" >Book</button>
+                    <button class="btn btn-default" type="button" >Cancel</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+         </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+

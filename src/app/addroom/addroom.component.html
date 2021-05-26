@@ -1,0 +1,47 @@
+<section class="container">
+    <!-- Form validations -->
+    <div class="row">
+      <div class="col-lg-12">
+        <section class="panel">
+          <header class="panel-heading">
+            Room updation
+          </header>
+          <div class="panel-body">
+            <div class="form">
+              <form class="form-validate form-horizontal" id="user_registration" method="get" action="">
+                <div class="form-group ">
+                  <label for="lblroomno" class="control-label col-lg-2">Room no <span class="required">*</span></label>
+                  <div class="col-lg-10">
+                    <input class="form-control" id="lblroomno" name="roomno" minlength="5" type="text" required  [(ngModel)]="roomDetails.room_no"/>
+                  </div>
+                </div>
+                <div class="form-group ">
+                  <label for="lblroomtype" class="control-label col-lg-2">Roomtype <span class="required">*</span></label>
+                  <div class="col-lg-10">
+                    <input class="form-control" id="lblroomtype" name="roomtype" minlength="5" type="text" required [(ngModel)]="roomDetails.room_type"/>
+                  </div>
+                </div>
+                <div class="form-group ">
+                  <label for="lblvacancy" class="control-label col-lg-2">vacancy <span class="required">*</span></label>
+                  <div class="col-lg-10">
+                    <input class="form-control " id="lblvacancy" type="text" name="vacancy" [(ngModel)]="roomDetails.vacancy" />
+                  </div>
+                </div>
+                
+                
+                <div class="form-group">
+                  <div class="col-lg-offset-2 col-lg-10">
+                    <button class="btn btn-primary" type="button"(click)='addRoom()' >Save</button>
+                    <button class="btn btn-default" type="button" >Cancel</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+         </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+
